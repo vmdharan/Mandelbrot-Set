@@ -6,8 +6,13 @@ function drawPixel(x, y, col) {
     ctx.fillRect(x, y, 1, 1);
 }
 
+function saveCanvas() {
+    var img = renderArea.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    window.location.href = img;
+}
+
 // Image size
-var ImageWidth = 1200;
+var ImageWidth = 1600;
 var ImageHeight = 800;
 
 // Number of iterations to run
@@ -16,8 +21,8 @@ var iterations = 140;
 // shift image
 //var offsetX = 2;
 //var offsetY = 1.2;
-var offsetX = 0.8;
-var offsetY = 0.67;
+var offsetX = 1.2;
+var offsetY = 0.4;
 
 // Resolution
 //var resolution = 320;
