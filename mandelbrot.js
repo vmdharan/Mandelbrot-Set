@@ -14,11 +14,14 @@ var ImageHeight = 800;
 var iterations = 140;
 
 // shift image
-var offsetX = 2;
-var offsetY = 1.2;
+//var offsetX = 2;
+//var offsetY = 1.2;
+var offsetX = 0.8;
+var offsetY = 0.67;
 
 // Resolution
-var resolution = 320;
+//var resolution = 320;
+var resolution = 3072;
 var resolutionX = resolution;
 var resolutionY = resolution;
 
@@ -53,9 +56,21 @@ for(var x = 0; x < ImageWidth; x++) {
 
         var result = mandelbrot(cr, ci);
         var imgColor = '#000000';
-        if(result > 0)
+        if((result > 0) && (result <= 0.2 * iterations))
         {
-            imgColor = 'hsl(120, 100%, ' + result + '%)';
+            imgColor = 'hsl(200, 100%, ' + result + '%)';
+        }
+        else if((result > 0.2) && (result <= 0.6 * iterations))
+        {
+            imgColor = 'hsl(80, 100%, ' + result + '%)';
+        }
+        else if((result > 0.6) && (result <= 0.8 * iterations))
+        {
+            imgColor = 'hsl(60, 100%, ' + result + '%)';
+        }
+        else if(result > 0.8)
+        {
+            imgColor = 'hsl(20, 100%, ' + result + '%)';
         }
 
         drawPixel(x, y, imgColor);
